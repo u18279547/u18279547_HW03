@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<h2>Home Page</h2>
+<h3>The project in a nutshell</h3>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-8 col-md-8 col-sm-12">
+            <p>
+                The system I am building is a media uploading system. It allows for users to upload, read and delete documents, videos and images. 
+                On this page, you can select towards the right of the page whether the file you wish to upload is a video, image or document and 
+                the system will store your file accordingly. 
+            </p>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12">
+
+
+            @using (Html.BeginForm("Home", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+
+                <input type="radio" id="document" name="option" value="document">
+                <label for="document">Document</label><br>
+
+                <input type="radio" id="image" name="option" value="image">
+                <label for="image">Image</label><br>
+
+                <input type="radio" id="video" name="option" value="video">
+                <label for="video">Video</label><br />
+
+                @Html.TextBox("file", "", new { type = "file" }) <br />
+
+                <input type="submit" />
+            }
+
+
+        </div>
+    </div>
+</div>
+

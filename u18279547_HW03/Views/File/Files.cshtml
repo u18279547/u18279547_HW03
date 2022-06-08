@@ -1,0 +1,45 @@
+﻿@model IEnumerable<u18279547_HW03.Models.FileModel>
+@using u18279547_HW03.Models
+
+@{
+    ViewBag.Title = "Files";
+}
+
+<h2>Documents</h2>
+<h3>These are documents which you have uploaded</h3>
+<br />
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FileName)
+        </th>
+        <th>
+            Download Option
+        </th>
+        <th>
+            Delete Option
+        </th>
+    </tr>
+
+    @foreach (FileModel file in Model)
+    {
+        <tr>
+            <td>
+                @file.FileName
+            </td>
+
+            <td>
+
+                @Html.ActionLink("Download", "DownloadFile", new { fileName = file.FileName }, new { @class = "btn btn-success btn-large" })
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "DeleteFile", new { fileName = file.FileName }, new { @class = "btn btn-danger btn-large" })
+            </td>
+        </tr>
+    }
+
+
+
+</table>
